@@ -40,7 +40,7 @@ public class CadastroTest {
     
     @Test
     public void testSuccessfulCadastro() {
-        br.edu.utfpr.CadastroPage homePage = new CadastroPage(driver);
+        br.edu.utfpr.po.CadastroPage homePage = new CadastroPage(driver);
                 
         AddOwnerPage addOwnerPage = findOwnerPage.goToAddOwner();
         assertEquals("Owner", addOwnerPage.getTitle());
