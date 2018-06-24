@@ -1,16 +1,15 @@
 package br.edu.utfpr;
 
-import br.edu.utfpr.po.AddOwnerPage;
+import br.edu.utfpr.po.AddCadastroPage;
 import br.edu.utfpr.po.CadastroPage;
-import br.edu.utfpr.po.FindOwnerPage;
-import br.edu.utfpr.po.HomePage;
-import br.edu.utfpr.po.OwnerInformationPage;
+import br.edu.utfpr.po.FindCadastroPage;
 import java.util.concurrent.TimeUnit;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import org.junit.Ignore;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
@@ -19,67 +18,69 @@ import org.openqa.selenium.firefox.FirefoxDriver;
  * @author andreendo
  */
 public class CadastroTest {
-    
+
     private WebDriver driver;
-    
+
     @BeforeClass
     public static void beforeClass() {
         System.setProperty("webdriver.gecko.driver", "C:\\wcd\\TestadorAPP\\geckodriver.exe");
     }
-    
+
     @Before
     public void before() {
         driver = new FirefoxDriver();
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);     
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     }
-    
+
     @After
     public void after() {
-        driver.close();
-    }    
-    
+        //driver.close();
+    }
+
     @Test
     public void testSuccessfulCadastro() {
-        br.edu.utfpr.po.CadastroPage homePage = new CadastroPage(driver);
-                
-        AddOwnerPage addOwnerPage = findOwnerPage.goToAddOwner();
-        assertEquals("Owner", addOwnerPage.getTitle());
-        
-        OwnerInformationPage ownerInfoPage = addOwnerPage.setFirstName("Joao")
-                .setLastName("Da Silva")
-                .setAddress("Rua das Acacias, 451")
-                .setCity("Cornelio Procopio")
-                .setTelephone("993335544")
-                .addValidData();
-        
-        assertEquals("Owner Information", ownerInfoPage.getTitle());
-        assertEquals("Joao Da Silva", ownerInfoPage.getName());
-        assertEquals("Rua das Acacias, 451", ownerInfoPage.getAddress());
-        assertEquals("Cornelio Procopio", ownerInfoPage.getCity());
-        assertEquals("993335544", ownerInfoPage.getTelephone());
-    }    
-    
-    @Test
-    public void testErrorNoLastNameOwnerInsertion() {
-        HomePage homePage = new HomePage(driver);
-        FindOwnerPage findOwnerPage = homePage.getMenu().goToFindOwners();
-        AddOwnerPage addOwnerPage = findOwnerPage.goToAddOwner();
-        addOwnerPage.setFirstName("Jose")
-                .setAddress("Rua das Acacias, 451")
-                .setCity("Cornelio Procopio")
-                .setTelephone("993335544")
-                .addInvalidData();
-        
-        assertEquals(1, addOwnerPage.getNumberOfErrors());
+        br.edu.utfpr.po.CadastroPage cadastroPage = new CadastroPage(driver);
+
+        FindCadastroPage findCadastroPage = new FindCadastroPage(driver);
+        AddCadastroPage addCadastroPage = findCadastroPage.goToAddCadastro();
+        AddCadastroPage cad = addCadastroPage.setUserFirstName("Joao")
+                .setUserLastName("Da Silva")
+                .setUserPassword("1234")
+                .setUserPasswordConfirma("1234")
+                .setUserEmail("joao1@hotmail.com")//mudar sempre o email para conseguir realizar o cadastro
+                .setUserLogin("jao1")//mudar sempre o login para conseguir realizar o cadastro
+                .setUserCustom("Joao");
+
+        addCadastroPage.clickFindButton();
+
+        assertTrue(findCadastroPage.gravadoSucesso());
     }
-    
+
     @Test
-    public void testErrorNoData() {
-        HomePage homePage = new HomePage(driver);
-        FindOwnerPage findOwnerPage = homePage.getMenu().goToFindOwners();
-        AddOwnerPage addOwnerPage = findOwnerPage.goToAddOwner();
-        addOwnerPage.addInvalidData();
-        
-        assertEquals(5, addOwnerPage.getNumberOfErrors());
-    }    
+    public void testErroCadastro() {
+        br.edu.utfpr.po.CadastroPage cadastroPage = new CadastroPage(driver);
+
+        FindCadastroPage findCadastroPage = new FindCadastroPage(driver);
+        AddCadastroPage addCadastroPage = findCadastroPage.goToAddCadastro();
+        AddCadastroPage cad = addCadastroPage.setUserFirstName("Joao")
+                .setUserLastName("Da Silva")
+                .setUserPassword("1234")
+                .setUserPasswordConfirma("1234")
+                .setUserEmail("joao1@hotmail.com")
+                .setUserLogin("joao1")
+                .setUserCustom("Joao");
+
+        addCadastroPage.clickFindButton();
+
+        assertFalse(findCadastroPage.gravadoSucesso());
+    }
+
+    @Ignore
+    @Test
+    public void testTituloPageCadastro() {
+        br.edu.utfpr.po.CadastroPage cadastroPage = new CadastroPage(driver);
+        FindCadastroPage findCadastroPage = new FindCadastroPage(driver);
+        AddCadastroPage addCadastroPage = findCadastroPage.goToAddCadastro();
+        assertEquals("Cadastre-se", findCadastroPage.getTitle());
+    }
 }
