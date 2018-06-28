@@ -1,11 +1,6 @@
 package br.edu.utfpr;
 
-import br.edu.utfpr.login.AddLoginPage;
-import br.edu.utfpr.login.AddTarefaPage;
-import br.edu.utfpr.login.FindLoginPage;
-import br.edu.utfpr.login.FindTarefaPage;
-import br.edu.utfpr.login.LoginPage;
-import br.edu.utfpr.login.TarefasPage;
+import br.edu.utfpr.login.*;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
 import org.junit.After;

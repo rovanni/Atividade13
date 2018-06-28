@@ -20,12 +20,6 @@ public class AddTarefaPage extends BasePage {
     @FindBy(id = "issue_description")
     WebElement tarefaDescricao;
 
-    @FindBy(name = "issue_status_id")
-    WebElement tarefaSituacao;
-
-    @FindBy(name = "issue_priority_id")
-    WebElement tarefaPrioridade;
-
     @FindBy(name = "commit")
     WebElement tarefaBtnCriar;
 
