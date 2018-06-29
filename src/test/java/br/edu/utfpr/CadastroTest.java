@@ -3,13 +3,14 @@ package br.edu.utfpr;
 import br.edu.utfpr.po.AddCadastroPage;
 import br.edu.utfpr.po.CadastroPage;
 import br.edu.utfpr.po.FindCadastroPage;
+import br.edu.utfpr.util.CaminhoGeckodriver;
 import java.util.concurrent.TimeUnit;
 import org.junit.After;
+import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.BeforeClass;
-import org.junit.Test;
-import static org.junit.Assert.*;
 import org.junit.Ignore;
+import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
@@ -23,7 +24,8 @@ public class CadastroTest {
 
     @BeforeClass
     public static void beforeClass() {
-        System.setProperty("webdriver.gecko.driver", "C:\\wcd\\TestadorAPP\\geckodriver.exe");
+        br.edu.utfpr.util.CaminhoGeckodriver c = new CaminhoGeckodriver();
+        System.setProperty("webdriver.gecko.driver", c.geckodriver());     
     }
 
     @Before

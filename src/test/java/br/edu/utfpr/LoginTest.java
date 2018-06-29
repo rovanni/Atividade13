@@ -1,6 +1,7 @@
 package br.edu.utfpr;
 
 import br.edu.utfpr.login.*;
+import br.edu.utfpr.util.CaminhoGeckodriver;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
 import org.junit.After;
@@ -24,8 +25,8 @@ public class LoginTest {
 
     @BeforeClass
     public static void beforeClass() {
-        //System.setProperty("webdriver.gecko.driver", "C:\\wcd\\TestadorAPP\\geckodriver.exe");
-        System.setProperty("webdriver.gecko.driver", "C:\\Java\\geckodriver.exe");//PC Luciano
+        br.edu.utfpr.util.CaminhoGeckodriver caminho = new CaminhoGeckodriver();
+        System.setProperty("webdriver.gecko.driver", caminho.geckodriver());
     }
 
     @Before
