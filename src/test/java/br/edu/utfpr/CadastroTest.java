@@ -24,8 +24,9 @@ public class CadastroTest {
 
     @BeforeClass
     public static void beforeClass() {
+        //para mudar o caminho do geckodriverCaminho altere no pacote util no metodo geckodriverCaminho
         br.edu.utfpr.util.CaminhoGeckodriver c = new CaminhoGeckodriver();
-        System.setProperty("webdriver.gecko.driver", c.geckodriver());     
+        System.setProperty("webdriver.gecko.driver", c.geckodriverCaminho());     
     }
 
     @Before

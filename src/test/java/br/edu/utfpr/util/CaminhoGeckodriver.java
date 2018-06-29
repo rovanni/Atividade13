@@ -6,7 +6,7 @@ package br.edu.utfpr.util;
  */
 public class CaminhoGeckodriver {
     
-    public String geckodriver() {
+    public String geckodriverCaminho() {
         String caminho;
         caminho= "C:\\Java\\geckodriver.exe";
         return caminho;

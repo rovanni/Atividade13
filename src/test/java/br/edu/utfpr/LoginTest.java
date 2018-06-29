@@ -25,8 +25,9 @@ public class LoginTest {
 
     @BeforeClass
     public static void beforeClass() {
+        //para mudar o caminho do geckodriverCaminho altere no pacote util no metodo geckodriverCaminho        
         br.edu.utfpr.util.CaminhoGeckodriver caminho = new CaminhoGeckodriver();
-        System.setProperty("webdriver.gecko.driver", caminho.geckodriver());
+        System.setProperty("webdriver.gecko.driver", caminho.geckodriverCaminho());
     }
 
     @Before
