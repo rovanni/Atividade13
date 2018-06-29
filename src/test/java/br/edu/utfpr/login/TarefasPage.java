@@ -9,6 +9,6 @@ import org.openqa.selenium.WebDriver;
 public class TarefasPage extends BasePage{
     public TarefasPage(WebDriver driver) {
         super(driver);
-        driver.get("http://demo.redmine.org/projects/teste/issues/new");
+        driver.get("http://demo.redmine.org/projects/teste-123456/issues/new");
     }      
 }
