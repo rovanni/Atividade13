@@ -3,18 +3,18 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.edu.utfpr.po;
+package br.edu.utfpr.search;
 
 import org.openqa.selenium.WebDriver;
 
 /**
  *
- * @author Mussi
+ * @author Edmundo
  */
-public class CadastroPage extends BasePage{
+public class SearchPage extends BaseSearchPage{
 
-    public CadastroPage(WebDriver driver) {
+    public SearchPage(WebDriver driver) {
         super(driver);
-        driver.get("http://demo.redmine.org/account/register");
+        driver.get("http://demo.redmine.org");
     }    
 }
