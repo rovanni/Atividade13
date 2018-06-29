@@ -31,12 +31,12 @@ public class SearchTest {
     @Before
     public void before() {
         driver = new FirefoxDriver();
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
     }
 
     @After
     public void after() {
-        //driver.close();
+        driver.close();
     }
 
     @Test

@@ -42,6 +42,15 @@ public class AddCadastroPage extends BasePage {
     @FindBy(name = "commit")
     WebElement btnEnviar;
 
+    @FindBy(xpath = "/html/body/div/div/div[1]/div[3]/div[1]/p[2]/a")
+    WebElement btnExcluirConta;
+
+    @FindBy(id = "confirm")
+    WebElement btnConfirma;
+
+    @FindBy(xpath = "/html/body/div/div/div[1]/div[3]/div[2]/div[1]/form/input[3]")
+    WebElement btnDeleteMyAcount;
+
     public AddCadastroPage(WebDriver driver) {
         super(driver);
     }
@@ -106,4 +115,20 @@ public class AddCadastroPage extends BasePage {
         btnEnviar.click();
         return new ListCadastroPage(driver);
     }
+
+    public ListCadastroPage clickExcluirConta() {
+        btnExcluirConta.click();
+        return new ListCadastroPage(driver);
+    }
+
+    public ListCadastroPage clickConfirma() {
+        btnConfirma.click();
+        return new ListCadastroPage(driver);
+    }
+
+    public ListCadastroPage clickDeleteMyAcount() {
+        btnDeleteMyAcount.click();
+        return new ListCadastroPage(driver);
+    }
+
 }

@@ -8,7 +8,7 @@ public class CaminhoGeckodriver {
     
     public String geckodriverCaminho() {
         String caminho;
-        caminho= "C:\\Java\\geckodriver.exe";
+        caminho= "/home/luciano/Downloads/geckodriver";
         return caminho;
     }
     

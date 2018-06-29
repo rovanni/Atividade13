@@ -70,8 +70,12 @@ public class FindCadastroPage extends BasePage {
     }
 
     public boolean gravadoSucesso() {
-        return dr.getCurrentUrl().equals("http://demo.redmine.org/login");
+        return dr.getCurrentUrl().equals("http://demo.redmine.org/my/account");
     }
+    
+    public boolean deletadoSucesso() {
+        return dr.getCurrentUrl().equals("http://demo.redmine.org/");
+    }    
 
     public String getUrl() {
         return driver.getCurrentUrl();
